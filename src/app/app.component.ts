@@ -36,6 +36,9 @@ export class AppComponent implements OnInit {
     this.todoService
       .addTodo(this.inputValue)
       .pipe(take(1))
-      .subscribe((_) => this.loadTodos());
+      .subscribe((_) => {
+        this.loadTodos();
+        this.inputValue = '';
+      });
   }
 }
